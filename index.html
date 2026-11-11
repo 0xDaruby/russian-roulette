@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171714">
+  <title>Russian Roulette</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div class="wordmark"><span class="mark" aria-hidden="true">◆</span> LOCAL ARCADE</div>
+      <button id="sound" class="sound" type="button" aria-label="Game sound" aria-pressed="false">Sound off</button>
+    </header>
+    <div class="title-row">
+      <div>
+        <h1>RUSSIAN <span>ROULETTE</span></h1>
+        <p class="subtitle">Five safe tiles. One crash. The odds change with every reveal.</p>
+      </div>
+      <div class="odds"><strong id="odds">1/6</strong><small>CRASH ODDS<br> NEXT DRAW</small></div>
+    </div>
+
+    <nav class="modes" aria-label="Game mode">
+      <button type="button" data-mode="solo" aria-pressed="true">Solo <span>1 player</span></button>
+      <button type="button" data-mode="duel" aria-pressed="false">Duel <span>2 players</span></button>
+      <button type="button" data-mode="survival" aria-pressed="false">Last one standing <span>3 players</span></button>
+    </nav>
+
+    <div class="layout">
+      <section class="machine" aria-label="Tile table">
+        <div class="well">
+          <div class="signal-label"><span>THE TABLE</span><span id="remaining">6 tiles left</span></div>
+          <div class="signals" aria-hidden="true">
+            <div class="channel"><i></i><span>01</span></div>
+            <div class="channel"><i></i><span>02</span></div>
+            <div class="channel"><i></i><span>03</span></div>
+            <div class="channel"><i></i><span>04</span></div>
+            <div class="channel"><i></i><span>05</span></div>
+            <div class="channel"><i></i><span>06</span></div>
+          </div>
+          <div class="readout" role="status" aria-atomic="true">
+            <strong id="status">Ready to draw</strong>
+            <span id="detail">A safe tile adds one point to your streak.</span>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="primary" class="primary" type="button"><span>Draw a tile</span><kbd>Enter</kbd></button>
+          <button id="bank" class="bank" type="button" aria-keyshortcuts="Alt+C" disabled>Cash out <kbd>Alt+C</kbd></button>
+        </div>
+      </section>
+
+      <aside class="scoreboard" aria-label="Scoreboard">
+        <h2 id="score-title">Solo run</h2>
+        <div id="scores" class="scores"></div>
+        <p id="rules" class="rules">Cash out to bank your streak. A crash wipes your unbanked points.</p>
+        <div class="stripe" aria-hidden="true"></div>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
